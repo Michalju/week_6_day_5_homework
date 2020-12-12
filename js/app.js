@@ -3,7 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const dogForm = document.querySelector('#dog_form');
     dogForm.addEventListener('submit', handleDogFormSubmit);
+
+
+
+    // create button under h2 header
+    const h2 = document.querySelector('h2');
+    const deleteAll = document.createElement('button');
+    deleteAll.textContent = 'DeleteAll';
+    deleteAll.setAttribute("id", "DeleteAll");
+    h2.appendChild(deleteAll);
     
+    // create section under h2 header
+     const section = document.createElement('section');  
+    h2.appendChild(section);
+
+    const deleteAllButton = document.querySelector('#DeleteAll');
+    deleteAllButton.addEventListener('click', handleDeleteAllButton);
+
   })
 
   const handleDogFormSubmit = function (event) {
@@ -23,13 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
     newKidsFriendly.textContent= `Kids friendly rating: ${event.target.kids_friendly.value}`;
 
     //appends h2 with new div
-    const h2 = document.querySelector("h2");
-    h2.appendChild(newDiv);
+    const section = document.querySelector("section");
+    section.appendChild(newDiv);
 
     //adds paragraphs under newly created div
     newDiv.appendChild(newName);
     newDiv.appendChild(newKidsFriendly);
-    
+
     //resets form data
     document.getElementById("dog_form").reset();
+
+
+  }
+
+  const handleDeleteAllButton = function (event){
+     
+    const readingList = document.querySelector('section');
+    readingList.innerHTML = '';
   }
