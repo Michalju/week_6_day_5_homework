@@ -4,22 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const dogForm = document.querySelector('#dog_form');
     dogForm.addEventListener('submit', handleDogFormSubmit);
 
-
-
-    // create button under h2 header
-    const h2 = document.querySelector('h2');
-    const deleteAll = document.createElement('button');
-    deleteAll.textContent = 'DeleteAll';
-    deleteAll.setAttribute("id", "DeleteAll");
-    h2.appendChild(deleteAll);
-    
-    // create section under h2 header
-     const section = document.createElement('section');  
-    h2.appendChild(section);
+    createButton();
+    createSection(); 
 
     const deleteAllButton = document.querySelector('#DeleteAll');
     deleteAllButton.addEventListener('click', handleDeleteAllButton);
-
   })
 
   const handleDogFormSubmit = function (event) {
@@ -56,4 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
      
     const readingList = document.querySelector('section');
     readingList.innerHTML = '';
+  }
+
+  const createButton = function(){
+    // create button under h2 header
+    const h2 = document.querySelector('h2');
+    const deleteAll = document.createElement('button');
+    deleteAll.textContent = 'DeleteAll';
+    deleteAll.setAttribute("id", "DeleteAll");
+    h2.appendChild(deleteAll);
+  }
+
+
+  const createSection = function(){
+       // create section under h2 header to keep items
+       const h2 = document.querySelector('h2');
+       const section = document.createElement('section');  
+       h2.appendChild(section);
   }
